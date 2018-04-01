@@ -10,7 +10,7 @@ import com.test.demo.service.BaseService;
 @Service
 public class BaseServiceImpl implements BaseService {
 
-	@Value("${word}")
+	@Value("${com.test.name}")
 	private String value;
 	
 	@Autowired

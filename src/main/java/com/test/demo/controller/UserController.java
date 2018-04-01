@@ -17,16 +17,17 @@ public class UserController {
 
 	private Gson gson = new Gson();
 	
-	@Autowired
-	private UserMapper userMapper;
+//	@Autowired
+//	private UserMapper userMapper;
 	
 	@GetMapping()
 	public String getUserById(Integer id) {
-		Response resp = null;
+		Response resp = new Response();
 		if(StringUtils.isEmpty(id)) {
 			return "id can not be null neither an empty string.";
 		}
-		User user = userMapper.getUserById(id);
+//		User user = userMapper.getUserById(id);
+//		resp.setData(user);
 		return gson.toJson(resp);
 	}
 	
