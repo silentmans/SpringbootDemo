@@ -20,7 +20,7 @@ public class UserController {
 //	@Autowired
 //	private UserMapper userMapper;
 	
-	@GetMapping()
+	@GetMapping("test")
 	public String getUserById(Integer id) {
 		Response resp = new Response();
 		if(StringUtils.isEmpty(id)) {

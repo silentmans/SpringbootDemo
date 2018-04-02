@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.test.demo.service.BaseService;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/test")
 public class BaseController {
 
 	@Autowired
 	private BaseService bs;
 	
-	@GetMapping("test")
+	@GetMapping()
 	public String getMethod(@RequestParam String param) {
 		String result = bs.getValue(param) ;
 		if(StringUtils.isEmpty(param)) {
