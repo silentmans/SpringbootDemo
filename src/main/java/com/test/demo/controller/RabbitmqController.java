@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.test.demo.rabbitmq.Sender;
 
 @RestController
-@RequestMapping("/rabbit")
+@RequestMapping("/rabbitmq")
 public class RabbitmqController {
 
 	@Autowired
