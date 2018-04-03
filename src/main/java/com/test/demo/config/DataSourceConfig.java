@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @MapperScan({"com.test.demo.mapper"})
-public class DataSourceConfiguration {
+public class DataSourceConfig {
 	
 //	@Bean
 //	@ConfigurationProperties(prefix = "mybatis")

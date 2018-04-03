@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.test.demo.service.BaseService;
+import com.test.demo.service.IBaseService;
 
 @RestController
 @RequestMapping("/test")
 public class BaseController {
 
 	@Autowired
-	private BaseService bs;
+	private IBaseService bs;
 	
 	@GetMapping()
 	public String getMethod(@RequestParam String param) {

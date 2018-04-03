@@ -2,7 +2,7 @@ package com.test.demo.mapper;
 
 import org.apache.ibatis.annotations.Select;
 
-import com.test.demo.bean.User;
+import com.test.demo.entity.User;
 
 public interface UserMapper {
 

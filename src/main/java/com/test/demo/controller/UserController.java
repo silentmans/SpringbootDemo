@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-import com.test.demo.bean.User;
+import com.test.demo.constant.ResponseConstant;
+import com.test.demo.entity.User;
 import com.test.demo.mapper.UserMapper;
 import com.test.demo.model.Response;
 
@@ -28,6 +29,7 @@ public class UserController {
 		}
 //		User user = userMapper.getUserById(id);
 //		resp.setData(user);
+		resp.setStatus(ResponseConstant.SUCCESS);
 		return gson.toJson(resp);
 	}
 	
