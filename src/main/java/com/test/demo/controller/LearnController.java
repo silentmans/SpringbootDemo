@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.test.demo.entity.LearnResouce;
 import com.test.demo.mapper.LearnMapper;
+import com.test.demo.mapper.LearnMapperForXML;
 import com.test.demo.service.ILearnService;
 import com.test.demo.util.Page;
 import com.test.demo.util.ServletUtil;
@@ -35,6 +36,8 @@ public class LearnController {
 
 	@Autowired
 	private LearnMapper mapper;
+	@Autowired
+	private LearnMapperForXML xmapper;
 	
     @RequestMapping("")
     public String learn(){
@@ -45,6 +48,13 @@ public class LearnController {
     public String queryListByMapper() {
     	Long id = (long) 999;
     	LearnResouce result = mapper.queryLearnResouceById(id);
+    	return new Gson().toJson(result);
+    }
+
+    @GetMapping("xmltest")
+    public String queryListByXML() {
+    	Long id = (long) 999;
+    	LearnResouce result = xmapper.queryLearnResouceById(id);
     	return new Gson().toJson(result);
     }
     
