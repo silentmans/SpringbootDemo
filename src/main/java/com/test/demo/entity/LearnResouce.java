@@ -2,9 +2,18 @@ package com.test.demo.entity;
 
 public class LearnResouce {
 
+	private long id;
 	private String author;
 	private String title;
 	private String url;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getAuthor() {
 		return author;
@@ -34,6 +43,10 @@ public class LearnResouce {
 		this.author = author;
 		this.title = title;
 		this.url = url;
+	}
+
+	public LearnResouce() {
+		
 	}
 
 }

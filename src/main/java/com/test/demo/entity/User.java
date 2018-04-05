@@ -16,6 +16,11 @@ public class User {
 	
 	private String addr;
 	
+	public User(String name, String password) {
+		this.name = name;
+		this.password = password;
+	}
+
 	public Integer getId() {
 		return id;
 	}
