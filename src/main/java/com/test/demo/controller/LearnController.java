@@ -3,6 +3,7 @@ package com.test.demo.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,7 +16,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 import com.test.demo.entity.LearnResouce;
+import com.test.demo.mapper.LearnMapper;
 import com.test.demo.service.ILearnService;
 import com.test.demo.util.Page;
 import com.test.demo.util.ServletUtil;
@@ -30,11 +33,21 @@ public class LearnController {
 	@Autowired
     private ILearnService learnService;
 
+	@Autowired
+	private LearnMapper mapper;
+	
     @RequestMapping("")
     public String learn(){
         return "learn-resource";
     }
 
+    @GetMapping("mappertest")
+    public String queryListByMapper() {
+    	Long id = (long) 999;
+    	LearnResouce result = mapper.queryLearnResouceById(id);
+    	return new Gson().toJson(result);
+    }
+    
     @RequestMapping(value = "/queryLeanList",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
     @ResponseBody
     public void queryLearnList(HttpServletRequest request ,HttpServletResponse response){
