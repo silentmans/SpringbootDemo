@@ -27,38 +27,39 @@ import com.test.demo.model.Response;
 public class UserController {
 
 	private Logger logger = LogManager.getLogger(this.getClass());
-	
+
 	private Gson gson = new Gson();
-	
-//	@Autowired
-//	private UserMapper userMapper;
-	
+
+	@Autowired
+	private UserMapper userMapper;
+
 	@GetMapping("test")
 	public String getUserById(Integer id) {
+		logger.info("/user/test id : " + id);
 		Response resp = new Response();
-		if(StringUtils.isEmpty(id)) {
+		if (StringUtils.isEmpty(id)) {
 			return "id can not be null neither an empty string.";
 		}
-//		User user = userMapper.getUserById(id);
-//		resp.setData(user);
+		User user = userMapper.getUserById(id);
+		resp.setData(user);
 		resp.setStatus(ResponseConstant.SUCCESS);
 		return gson.toJson(resp);
 	}
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    @ResponseBody
-    public Map<String,Object> login(HttpServletRequest request, HttpServletResponse response){
-        Map<String,Object> map =new HashMap<String,Object>();
-        String userName=request.getParameter("userName");
-        String password=request.getParameter("password");
-        if(!userName.equals("") && password!=""){
-            User user =new User(userName,password);
-            request.getSession().setAttribute("user",user);
-            map.put("result","1");
-        }else{
-            map.put("result","0");
-        }
-        return map;
-    }
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
+		if (!userName.equals("") && password != "") {
+			User user = new User(userName, password);
+			request.getSession().setAttribute("user", user);
+			map.put("result", "1");
+		} else {
+			map.put("result", "0");
+		}
+		return map;
+	}
 
 }

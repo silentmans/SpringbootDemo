@@ -6,7 +6,7 @@ import com.test.demo.entity.User;
 
 public interface UserMapper {
 
-	@Select("select user.id, user.name from user where id = #{id}")
+	@Select("select * from user where id = #{id}")
 	public User getUserById(Integer id);
 	
 }

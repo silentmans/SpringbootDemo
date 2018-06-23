@@ -6,10 +6,13 @@ import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimpleDateFormatSerializer;
-import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
@@ -36,7 +39,7 @@ public class ServletUtil {
 	//业务名称的缩写
 	private static final String BIZ_NAME = "";
 
-	private static Logger log = Logger.getLogger(ServletUtil.class);
+	private static Logger log = LogManager.getLogger(ServletUtil.class);
 
 	static{
 		try {
